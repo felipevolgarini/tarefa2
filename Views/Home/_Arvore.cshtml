@@ -1,4 +1,41 @@
 ﻿@model Tarefa2.Models.Galho;
 @{
-    <h1>@Model.Numero</h1>
+    <span style="position:relative;left:500px;font-weight: bold;">@Model.Numero</span>
+
+    Galho atualEsquerda = Model.Esquerda;
+    Galho atualDireita = Model.Direita;
+    int posEsquerda = 500 - 10;
+    int posDireita = 500 + 10;
+    
+    while (atualEsquerda != null || atualDireita != null)
+    {
+        <br />     
+        if (atualEsquerda != null)
+        {
+            <span style="position:relative;left:@(posEsquerda)px;font-weight: bold;">/</span>
+        }
+        if (atualDireita != null)
+        {
+            <span style="position:relative;left:@(posDireita)px;font-weight: bold;">\</span>
+        }
+        <br />
+
+        posEsquerda -= 10;
+        posDireita += 10;
+
+        if (atualEsquerda != null)
+        {
+            <span style="position:relative;left:@(posEsquerda)px;font-weight: bold;">@atualEsquerda.Numero</span>
+            atualEsquerda = atualEsquerda.Esquerda;
+        }
+        if (atualDireita != null)
+        {
+            <span style="position:relative;left:@(posDireita)px;;font-weight: bold;">@atualDireita.Numero</span>
+            atualDireita = atualDireita.Direita;
+        }
+
+        posEsquerda -= 10;
+        posDireita += 10;
+
+    }
 }
