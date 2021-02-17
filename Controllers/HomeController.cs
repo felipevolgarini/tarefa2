@@ -17,7 +17,8 @@ namespace Tarefa2.Controllers
         {
             int[] arrayInteiros = _arvoreService.TransformarParaArrayInteiro(entrada);
 
-            Raiz raiz = new Raiz(2);
+            Galho raiz = _arvoreService.GerarArvore(arrayInteiros);
+
             return PartialView("_Arvore",raiz);
         }
     }

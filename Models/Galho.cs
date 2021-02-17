@@ -3,12 +3,14 @@
     public class Galho
     {
         public int Numero { get; set; }
-        public Galho Proximo { get; set; }
+        public Galho Esquerda { get; set; }
+        public Galho Direita { get; set; }
         
         public Galho(int numero)
         {
             this.Numero = numero;
-            this.Proximo = null;            
+            this.Esquerda = null;
+            this.Direita = null;
         }
     }
 }
